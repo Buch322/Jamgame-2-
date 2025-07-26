@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d14t7m3t4f2vt"]
+[gd_scene load_steps=16 format=3 uid="uid://d14t7m3t4f2vt"]
 
 [ext_resource type="Script" uid="uid://sm7o8tifyeki" path="res://Main/scripts/path_follow_2d.gd" id="1_e7062"]
 [ext_resource type="Script" uid="uid://dt6mv13xq2ikl" path="res://Main/scripts/main_game.gd" id="1_fc30o"]
+[ext_resource type="Texture2D" uid="uid://cd8f2ccb1ybs3" path="res://Main/sprites/background.png" id="2_fig50"]
 [ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="3_fvoyx"]
 [ext_resource type="PackedScene" uid="uid://c7bygm172dcnc" path="res://Main/Scenes/enemy.tscn" id="3_kjm4k"]
 [ext_resource type="PackedScene" uid="uid://bvxwbh835dvy4" path="res://Main/Scenes/enemy_paths.tscn" id="4_611dc"]
@@ -9,16 +10,16 @@
 [ext_resource type="Script" uid="uid://dw0w53l0mcs5h" path="res://Main/scripts/fps_label.gd" id="6_1b2iq"]
 [ext_resource type="PackedScene" uid="uid://8m6rf7ve01us" path="res://Main/Scenes/buyarea.tscn" id="8_611dc"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1b2iq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sccvh"]
+
 [sub_resource type="Curve2D" id="Curve2D_sccvh"]
 bake_interval = 0.3
 _data = {
 "points": PackedVector2Array(173.516, -0.132683, -173.516, 0.132683, 1254, 132, 198.255, -39.6, -198.255, 39.6, 763, 583, 0, 0, 0, 0, 413, 352, 262.225, -322.69, -262.225, 322.69, 120, 411)
 }
 point_count = 4
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1b2iq"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sccvh"]
 
 [sub_resource type="GDScript" id="GDScript_fc30o"]
 script/source = "extends Label
@@ -63,8 +64,22 @@ func _process(delta: float) -> void:
 [node name="Main_game" type="Node2D"]
 script = ExtResource("1_fc30o")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 325)
+texture = ExtResource("2_fig50")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 325)
+
+[node name="material_click" type="Button" parent="."]
+offset_left = -4.0
+offset_top = -7.0
+offset_right = 443.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1b2iq")
+icon = SubResource("ViewportTexture_sccvh")
+flat = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_sccvh")
@@ -83,17 +98,6 @@ script = ExtResource("1_e7062")
 speed = 0.12
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource("3_kjm4k")]
-
-[node name="material_click" type="Button" parent="Path2D"]
-offset_left = 20.0
-offset_top = 18.0
-offset_right = 402.0
-offset_bottom = 209.0
-theme_override_font_sizes/font_size = 46
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1b2iq")
-text = "material button"
-icon = SubResource("ViewportTexture_sccvh")
-flat = true
 
 [node name="EnemyPaths" parent="Path2D" instance=ExtResource("4_611dc")]
 position = Vector2(1254, 132)
@@ -162,6 +166,6 @@ position = Vector2(866, 365)
 [node name="buyarea2" parent="bueareas" instance=ExtResource("8_611dc")]
 position = Vector2(993, 545)
 
+[connection signal="pressed" from="material_click" to="." method="_on_material_click_pressed"]
 [connection signal="timeout" from="Path2D/FirstEnemyTimer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Path2D/material_click" to="." method="_on_material_click_pressed"]
 [connection signal="timeout" from="timers/cycle_timer" to="." method="_on_cycle_timer_timeout"]

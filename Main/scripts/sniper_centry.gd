@@ -5,10 +5,10 @@ var target
 var ammo = 15
 var reload = 0
 @export var damage = 60
-@export var cooldown = 27
+@export var cooldown = 24
 
 func _ready() -> void:
-	pass
+	reload_time()
 
 
 
@@ -19,16 +19,16 @@ func _process(delta: float) -> void:
 # Выстрел
 func shoot():
 	if target != null:
-		if target.has_method("take_damage"):
+		if target.has_method("take_damage") and reload <= 0:
 			target.take_damage(damage)
-			reload += cooldown
+			reload = cooldown
 			ammo -= 1
 
 
 func reload_time():
 	while true:
 		await get_tree().create_timer(0.1).timeout
-		reload -= 0.1
+		reload -= 1
 
 
 # Тело вошло

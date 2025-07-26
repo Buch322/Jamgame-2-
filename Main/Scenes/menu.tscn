@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4igosvs4nbpt"]
+[gd_scene load_steps=8 format=3 uid="uid://4igosvs4nbpt"]
 
 [ext_resource type="Script" uid="uid://ojiu571p4gbm" path="res://Main/scripts/menu.gd" id="1_7eben"]
 [ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="2_ik27a"]
+[ext_resource type="Texture2D" uid="uid://cd8f2ccb1ybs3" path="res://Main/sprites/background.png" id="2_vtba1"]
 
 [sub_resource type="GDScript" id="GDScript_qu34p"]
 script/source = "extends Button
@@ -26,14 +27,43 @@ func _process(delta: float) -> void:
 		TranslationServer.set_locale('rus')
 "
 
+[sub_resource type="Curve2D" id="Curve2D_vtba1"]
+bake_interval = 0.3
+_data = {
+"points": PackedVector2Array(173.516, -0.132683, -173.516, -121.942, 902.145, 151.127, 35.3906, 2.45772, -35.3906, -2.45772, 696.609, 41.7612, 67.8081, -17.0488, -67.8081, 17.0488, 466.216, 289.706, 128.517, 201.765, -128.517, -201.765, 132.011, 243.263, -147.303, -227.243, 147.303, 227.243, 899.012, 151.127)
+}
+point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_vtba1"]
+script/source = "extends PathFollow2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	#progress_ratio = 5 * delta
+"
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_7eben")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-16, 851)
+scale = Vector2(4.7284, 4.7284)
+texture = ExtResource("2_vtba1")
+flip_h = true
+
 [node name="Cam" type="Camera2D" parent="."]
-position = Vector2(576, 323)
+position = Vector2(565, 383)
+scale = Vector2(1, 1)
 zoom = Vector2(1.1, 1.1)
 
-[node name="Label" type="Label" parent="Cam"]
+[node name="game_name" type="Label" parent="Cam"]
 offset_left = -193.0
 offset_top = -265.0
 offset_right = 206.0
@@ -65,6 +95,33 @@ theme_override_fonts/font = ExtResource("2_ik27a")
 theme_override_font_sizes/font_size = 26
 text = "MENU_QUIT"
 script = SubResource("GDScript_ik27a")
+
+[node name="Label" type="Label" parent="Cam"]
+offset_left = -519.0
+offset_top = 129.0
+offset_right = -180.0
+offset_bottom = 294.0
+theme_override_fonts/font = ExtResource("2_ik27a")
+theme_override_font_sizes/font_size = 30
+text = "Создатели:
+Buch - Программирование
+Dilaz -Пиксель арт
+Never - Идея, звук и музыка."
+autowrap_mode = 3
+
+[node name="Path2D" type="Path2D" parent="."]
+visible = false
+position = Vector2(-2203, 292)
+scale = Vector2(4.78748, 5.33989)
+curve = SubResource("Curve2D_vtba1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(899.012, 151.127)
+rotation = -2.52901
+progress = 1896.83
+rotates = false
+cubic_interp = false
+script = SubResource("GDScript_vtba1")
 
 [connection signal="pressed" from="Cam/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Cam/Button3" to="." method="_on_button_3_pressed"]
