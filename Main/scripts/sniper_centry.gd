@@ -1,10 +1,11 @@
 extends Node2D
+
 var target
 
 var ammo = 15
 var reload = 0
-@export var damage = 15
-@export var cooldown = 6
+@export var damage = 60
+@export var cooldown = 27
 
 func _ready() -> void:
 	pass

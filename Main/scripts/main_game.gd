@@ -7,7 +7,7 @@ extends Node2D
 func _ready() -> void:
 	#add_enemy(100)
 	glob.health = 100
-	glob.material = 100
+	glob.material = 1000
 	glob.klicks = 30
 	glob.klick_income = 1
 	

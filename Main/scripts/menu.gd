@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 func _on_button_2_pressed() -> void:
 	glob.Localisation += 1
-	if glob.Localisation >3:
+	if glob.Localisation >2:
 		glob.Localisation = 1
 
 

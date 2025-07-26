@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://8m6rf7ve01us"]
+
+[ext_resource type="Script" uid="uid://3vispdcqfcae" path="res://Main/scripts/buyarea.gd" id="1_wcera"]
+[ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="2_j18e5"]
+
+[node name="buyarea" type="Node2D"]
+script = ExtResource("1_wcera")
+
+[node name="BuyCentry" type="Button" parent="."]
+offset_left = -39.0
+offset_top = -38.0
+offset_right = 39.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 19
+text = "строить"
+alignment = 2
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -106.0
+offset_top = -114.0
+offset_right = 106.0
+offset_bottom = 37.0
+
+[node name="BuyCentry1" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 15
+text = "Обычная45"
+autowrap_mode = 3
+
+[node name="BuyCentry2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 30.0
+offset_right = 141.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 15
+text = "Огнемёт 95"
+autowrap_mode = 3
+
+[node name="BuyCentry3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 30.0
+offset_right = 212.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 11
+text = "Снайперская 120"
+autowrap_mode = 3
+
+[node name="otmena" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 107.0
+offset_right = 188.0
+offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 21
+text = "Отмена"
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 212.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 14
+text = "какую турель вы хотите построить?"
+
+[connection signal="pressed" from="BuyCentry" to="." method="_on_buy_centry_pressed"]
+[connection signal="pressed" from="Panel/BuyCentry1" to="." method="_on_buy_centry_1_pressed"]
+[connection signal="pressed" from="Panel/BuyCentry2" to="." method="_on_buy_centry_2_pressed"]
+[connection signal="pressed" from="Panel/BuyCentry3" to="." method="_on_buy_centry_3_pressed"]
+[connection signal="pressed" from="Panel/otmena" to="." method="_on_otmena_pressed"]

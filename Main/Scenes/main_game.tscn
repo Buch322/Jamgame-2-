@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvxwbh835dvy4" path="res://Main/Scenes/enemy_paths.tscn" id="4_611dc"]
 [ext_resource type="PackedScene" uid="uid://dkyanymbm2486" path="res://Main/Scenes/ship.tscn" id="5_1b2iq"]
 [ext_resource type="Script" uid="uid://dw0w53l0mcs5h" path="res://Main/scripts/fps_label.gd" id="6_1b2iq"]
-[ext_resource type="PackedScene" uid="uid://dif06p24aem6y" path="res://Main/Scenes/centry.tscn" id="7_wu4ea"]
+[ext_resource type="PackedScene" uid="uid://8m6rf7ve01us" path="res://Main/Scenes/buyarea.tscn" id="8_611dc"]
 
 [sub_resource type="Curve2D" id="Curve2D_sccvh"]
 bake_interval = 0.3
@@ -142,10 +142,6 @@ script = SubResource("GDScript_nyaeb")
 [node name="Ship" parent="." instance=ExtResource("5_1b2iq")]
 position = Vector2(106, 430)
 
-[node name="centry" parent="." instance=ExtResource("7_wu4ea")]
-position = Vector2(865, 363)
-scale = Vector2(0.605, 0.605)
-
 [node name="FpsLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -157,6 +153,14 @@ script = ExtResource("6_1b2iq")
 [node name="cycle_timer" type="Timer" parent="timers"]
 wait_time = 30.0
 autostart = true
+
+[node name="bueareas" type="Node2D" parent="."]
+
+[node name="buyarea" parent="bueareas" instance=ExtResource("8_611dc")]
+position = Vector2(866, 365)
+
+[node name="buyarea2" parent="bueareas" instance=ExtResource("8_611dc")]
+position = Vector2(993, 545)
 
 [connection signal="timeout" from="Path2D/FirstEnemyTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Path2D/material_click" to="." method="_on_material_click_pressed"]
