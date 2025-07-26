@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmb387ewxjkgo"]
+
+[ext_resource type="Script" uid="uid://sm7o8tifyeki" path="res://Main/scripts/path_follow_2d.gd" id="1_1t2ed"]
+[ext_resource type="PackedScene" uid="uid://c7bygm172dcnc" path="res://Main/Scenes/enemy.tscn" id="2_80jwj"]
+
+[node name="Enemy_spawn" type="PathFollow2D"]
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_1t2ed")
+speed = 0.12
+
+[node name="enemy" parent="." instance=ExtResource("2_80jwj")]
+position = Vector2(1254, 132)
+rotation = 3.14083

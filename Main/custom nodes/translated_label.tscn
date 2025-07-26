@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcw0ukvyn6bw8"]
+
+[ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="1_ayll8"]
+
+[sub_resource type="GDScript" id="GDScript_y8d4m"]
+script/source = "extends Label
+func _process(delta: float) -> void:
+	if glob.Localisation == 1:
+		TranslationServer.set_locale('pol')
+	if glob.Localisation == 2:
+		TranslationServer.set_locale('eng')
+	if glob.Localisation == 3:
+		TranslationServer.set_locale('rus')
+"
+
+[node name="Translated_Label" type="Label"]
+offset_left = -70.0
+offset_right = 71.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_ayll8")
+script = SubResource("GDScript_y8d4m")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm83irxdyxlqt"]
+
+[sub_resource type="GDScript" id="GDScript_0komj"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func _process(delta: float) -> void:
+	if glob.Localisation == 1:
+		TranslationServer.set_locale('pol')
+	if glob.Localisation == 2:
+		TranslationServer.set_locale('eng')
+	if glob.Localisation == 3:
+		TranslationServer.set_locale('rus')
+"
+
+[node name="Button" type="Button"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+script = SubResource("GDScript_0komj")

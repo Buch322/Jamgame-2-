@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://x14gpp4n3m04"
+
+[deps]
+
+files=["res://Main/Localisation/Новая таблица - Лист1.pol.translation", "res://Main/Localisation/Новая таблица - Лист1.eng.translation", "res://Main/Localisation/Новая таблица - Лист1.rus.translation"]
+
+source_file="res://Main/Localisation/Новая таблица - Лист1.csv"
+dest_files=["res://Main/Localisation/Новая таблица - Лист1.pol.translation", "res://Main/Localisation/Новая таблица - Лист1.eng.translation", "res://Main/Localisation/Новая таблица - Лист1.rus.translation"]
+
+[params]
+
+compress=true
+delimiter=0

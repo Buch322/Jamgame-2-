@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://4igosvs4nbpt"]
+
+[ext_resource type="Script" uid="uid://ojiu571p4gbm" path="res://Main/scripts/menu.gd" id="1_7eben"]
+[ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="2_ik27a"]
+
+[sub_resource type="GDScript" id="GDScript_qu34p"]
+script/source = "extends Button
+
+func _process(delta: float) -> void:
+	if glob.Localisation == 1:
+		TranslationServer.set_locale('pol')
+	if glob.Localisation == 2:
+		TranslationServer.set_locale('eng')
+	if glob.Localisation == 3:
+		TranslationServer.set_locale('rus')
+"
+
+[sub_resource type="GDScript" id="GDScript_7eben"]
+script/source = "extends Button
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if glob.Localisation == 1:
+		TranslationServer.set_locale('pol')
+	if glob.Localisation == 2:
+		TranslationServer.set_locale('eng')
+	if glob.Localisation == 3:
+		TranslationServer.set_locale('rus')
+"
+
+[sub_resource type="GDScript" id="GDScript_ik27a"]
+script/source = "extends Button
+func _process(delta: float) -> void:
+	if glob.Localisation == 1:
+		TranslationServer.set_locale('pol')
+	if glob.Localisation == 2:
+		TranslationServer.set_locale('eng')
+	if glob.Localisation == 3:
+		TranslationServer.set_locale('rus')
+"
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_7eben")
+
+[node name="Cam" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+zoom = Vector2(1.1, 1.1)
+
+[node name="Label" type="Label" parent="Cam"]
+offset_left = -193.0
+offset_top = -265.0
+offset_right = 206.0
+offset_bottom = -196.0
+scale = Vector2(1.00807, 1)
+theme_override_fonts/font = ExtResource("2_ik27a")
+theme_override_font_sizes/font_size = 61
+text = "Game name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Cam"]
+offset_left = -88.0
+offset_top = -88.0
+offset_right = 116.0
+offset_bottom = -30.0
+theme_override_fonts/font = ExtResource("2_ik27a")
+theme_override_font_sizes/font_size = 26
+text = "MENU_PLAY"
+script = SubResource("GDScript_qu34p")
+
+[node name="Button2" type="Button" parent="Cam"]
+offset_left = -88.0
+offset_top = -6.0
+offset_right = 116.0
+offset_bottom = 52.0
+scale = Vector2(1.02083, 1)
+theme_override_fonts/font = ExtResource("2_ik27a")
+theme_override_font_sizes/font_size = 26
+text = "MENU_TRANSLATE"
+script = SubResource("GDScript_7eben")
+
+[node name="Button3" type="Button" parent="Cam"]
+offset_left = -88.0
+offset_top = 76.0
+offset_right = 116.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("2_ik27a")
+theme_override_font_sizes/font_size = 26
+text = "MENU_QUIT"
+script = SubResource("GDScript_ik27a")
+
+[connection signal="pressed" from="Cam/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Cam/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Cam/Button3" to="." method="_on_button_3_pressed"]
