@@ -1,5 +1,8 @@
 extends Node2D
 @onready var enemy = preload("res://Main/Scenes/enemy_spawn.tscn")
+@onready var EnemyPath = preload("res://Main/Scenes/enemy_paths.tscn")
+@onready var path_2d: Path2D = $Path2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#add_enemy(100)
@@ -22,4 +25,7 @@ func _on_material_click_pressed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	pass
+	print("time")
+	var Spawn_Enemy= EnemyPath.instantiate()
+	#Spawn_Enemy.Enemy=enemy
+	path_2d.add_child(Spawn_Enemy)

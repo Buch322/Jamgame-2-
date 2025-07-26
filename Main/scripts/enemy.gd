@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@export var speed = 20
 @export var health = 35
 @export var damage = 1
 func _ready() -> void:

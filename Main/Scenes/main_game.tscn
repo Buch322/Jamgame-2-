@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d14t7m3t4f2vt"]
+[gd_scene load_steps=15 format=3 uid="uid://d14t7m3t4f2vt"]
 
 [ext_resource type="Script" uid="uid://sm7o8tifyeki" path="res://Main/scripts/path_follow_2d.gd" id="1_e7062"]
 [ext_resource type="Script" uid="uid://dt6mv13xq2ikl" path="res://Main/scripts/main_game.gd" id="1_fc30o"]
 [ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="3_fvoyx"]
 [ext_resource type="PackedScene" uid="uid://c7bygm172dcnc" path="res://Main/Scenes/enemy.tscn" id="3_kjm4k"]
+[ext_resource type="PackedScene" uid="uid://bvxwbh835dvy4" path="res://Main/Scenes/enemy_paths.tscn" id="4_611dc"]
 [ext_resource type="PackedScene" uid="uid://dkyanymbm2486" path="res://Main/Scenes/ship.tscn" id="5_1b2iq"]
 [ext_resource type="Script" uid="uid://dw0w53l0mcs5h" path="res://Main/scripts/fps_label.gd" id="6_1b2iq"]
 [ext_resource type="PackedScene" uid="uid://dif06p24aem6y" path="res://Main/Scenes/centry.tscn" id="7_wu4ea"]
@@ -28,7 +29,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	text = str(glob.health)
+	text = str(glob.health)+\" здоровье\"
 "
 
 [sub_resource type="GDScript" id="GDScript_fvoyx"]
@@ -42,7 +43,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = str(glob.material)
+	text = str(glob.material)+\" материалы\"
 "
 
 [sub_resource type="GDScript" id="GDScript_nyaeb"]
@@ -56,7 +57,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	text = str(glob.klicks)
+	text = str(glob.klicks)+\" хз\"
 "
 
 [node name="Main_game" type="Node2D"]
@@ -64,13 +65,16 @@ script = ExtResource("1_fc30o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 325)
+zoom = Vector2(0.765, 0.765)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_sccvh")
 
-[node name="Timer" type="Timer" parent="Path2D"]
+[node name="FirstEnemyTimer" type="Timer" parent="Path2D"]
+autostart = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+visible = false
 position = Vector2(1254, 132)
 rotation = 3.14083
 rotates = false
@@ -91,6 +95,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1b2iq")
 text = "material button"
 icon = SubResource("ViewportTexture_sccvh")
 flat = true
+
+[node name="EnemyPaths" parent="Path2D" instance=ExtResource("4_611dc")]
+position = Vector2(1254, 132)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 18.0
@@ -144,5 +151,5 @@ script = ExtResource("6_1b2iq")
 position = Vector2(865, 363)
 scale = Vector2(0.605, 0.605)
 
-[connection signal="timeout" from="Path2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Path2D/FirstEnemyTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Path2D/material_click" to="." method="_on_material_click_pressed"]
