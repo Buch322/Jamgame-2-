@@ -1,11 +1,10 @@
 extends Node2D
-
-@onready var enemy = preload("res://Main/Scenes/enemy.tscn")
+@onready var enemy = preload("res://Main/Scenes/enemy_spawn.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#add_enemy(100)
 	glob.health = 100
-	glob.material = 30
+	glob.material = 100
 	glob.klicks = 30
 	glob.klick_income = 1
 	
@@ -20,3 +19,7 @@ func _on_material_click_pressed() -> void:
 		glob.material += glob.klick_income
 	else:
 		pass
+
+
+func _on_timer_timeout() -> void:
+	pass

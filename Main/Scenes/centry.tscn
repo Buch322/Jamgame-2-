@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dif06p24aem6y"]
+
+[ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="1_g5tx1"]
+[ext_resource type="Script" uid="uid://b3ix61c4jmc6l" path="res://Main/scripts/centry.gd" id="1_rbgx2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbgx2"]
+radius = 317.002
+
+[node name="centry" type="Node2D"]
+script = ExtResource("1_rbgx2")
+
+[node name="buyarea" type="Node2D" parent="."]
+
+[node name="BuyCentry" type="Button" parent="buyarea"]
+offset_left = -39.0
+offset_top = -38.0
+offset_right = 39.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("1_g5tx1")
+theme_override_font_sizes/font_size = 41
+text = "45"
+alignment = 2
+
+[node name="centry1" type="Node2D" parent="."]
+visible = false
+
+[node name="Area2D" type="Area2D" parent="centry1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="centry1/Area2D"]
+shape = SubResource("CircleShape2D_rbgx2")
+
+[connection signal="pressed" from="buyarea/BuyCentry" to="." method="_on_buy_centry_pressed"]
+[connection signal="body_entered" from="centry1/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="centry1/Area2D" to="." method="_on_area_2d_body_exited"]

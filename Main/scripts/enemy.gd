@@ -20,3 +20,6 @@ func _on_button_pressed() -> void:
 func update_status():
 	if health <= 0:
 		queue_free()
+
+func take_damage(taken_damage):
+	health -= taken_damage
