@@ -22,4 +22,5 @@ func update_status():
 		queue_free()
 
 func take_damage(taken_damage):
+	print("damage")
 	health -= taken_damage

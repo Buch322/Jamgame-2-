@@ -13,7 +13,7 @@ damage = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nxere")
-debug_color = Color(0.982472, 0, 0.361879, 0.42)
+debug_color = Color(0.983169, 0, 0.355634, 0.42)
 
 [node name="Button" type="Button" parent="."]
 offset_left = -15.0

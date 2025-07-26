@@ -25,7 +25,8 @@ func _on_buy_centry_pressed() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "enemy" and target == null:
+	if body.has_method("take_damage"):
+		body.take_damage(100)
 		target = body
 		print("i choosed the target!")
 
@@ -36,8 +37,8 @@ func shoot():
 			reload += cooldown
 			ammo -= 1
 			print("damage dealed")
-	else:
-		print("000")
+	#else:
+		#print("000")
 
 func reload_time():
 	while true:

@@ -29,6 +29,8 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="centry1/Area2D"]
 shape = SubResource("CircleShape2D_rbgx2")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="buyarea/BuyCentry" to="." method="_on_buy_centry_pressed"]
 [connection signal="body_entered" from="centry1/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="centry1/Area2D" to="." method="_on_area_2d_body_exited"]
