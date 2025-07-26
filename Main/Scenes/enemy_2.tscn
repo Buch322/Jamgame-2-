@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1t4ktsfhy2vk"]
+
+[ext_resource type="Script" uid="uid://c10q4ksiq4ibq" path="res://Main/scripts/enemy_2.gd" id="1_tfocs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwqmx"]
+size = Vector2(30, 26)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyjqt"]
+
+[node name="Enemy 2" type="CharacterBody2D"]
+script = ExtResource("1_tfocs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fwqmx")
+debug_color = Color(0.176292, 0.000199791, 0.504756, 0.42)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -15.0
+offset_top = -13.0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qyjqt")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi2yhda6smo1x"]
+
+[ext_resource type="Script" uid="uid://b65ifbpce5c6w" path="res://Main/scripts/game_over.gd" id="1_pyyco"]
+[ext_resource type="PackedScene" uid="uid://bm83irxdyxlqt" path="res://Main/custom nodes/Tranlated_Button.tscn" id="2_fx03m"]
+[ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="3_73a74"]
+
+[node name="game_over" type="Node2D"]
+script = ExtResource("1_pyyco")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 322)
+
+[node name="Button" parent="Camera2D" instance=ExtResource("2_fx03m")]
+offset_left = -149.0
+offset_top = 163.0
+offset_right = 143.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("3_73a74")
+theme_override_font_sizes/font_size = 31
+text = "вернуться в меню"
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = -234.0
+offset_top = -30.0
+offset_right = 227.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_73a74")
+theme_override_font_sizes/font_size = 36
+text = "Ваш корабль уничтожен!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]

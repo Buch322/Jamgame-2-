@@ -23,11 +23,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Capitan": "res://Main/Capitan.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"timeline": "res://timeline.dtl"
+"start_dialogue": "res://start_dialogue.dtl"
 }
+glossary/default_case_sensitive=true
 
 [display]
 

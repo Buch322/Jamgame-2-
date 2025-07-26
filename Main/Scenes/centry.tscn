@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://b3ix61c4jmc6l" path="res://Main/scripts/centry.gd" id="1_rbgx2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rbgx2"]
-radius = 317.002
+radius = 344.0
 
-[node name="centry" type="Node2D"]
+[node name="centry1" type="Node2D"]
 script = ExtResource("1_rbgx2")
 
 [node name="buyarea" type="Node2D" parent="."]
@@ -28,9 +28,13 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="centry1/Area2D"]
 shape = SubResource("CircleShape2D_rbgx2")
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
 
 [connection signal="pressed" from="buyarea/BuyCentry" to="." method="_on_buy_centry_pressed"]
 [connection signal="body_entered" from="centry1/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="centry1/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,7 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
-		glob.health -= body.damage
-		body.queue_free()
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Main/Scenes/menu.tscn")

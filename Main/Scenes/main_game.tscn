@@ -57,7 +57,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	text = str(glob.klicks)+\" хз\"
+	text = str(glob.klicks)+\" кликов\"
 "
 
 [node name="Main_game" type="Node2D"]
@@ -65,7 +65,6 @@ script = ExtResource("1_fc30o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 325)
-zoom = Vector2(0.765, 0.765)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_sccvh")
@@ -98,6 +97,8 @@ flat = true
 
 [node name="EnemyPaths" parent="Path2D" instance=ExtResource("4_611dc")]
 position = Vector2(1254, 132)
+rotates = false
+loop = false
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 18.0
@@ -141,15 +142,22 @@ script = SubResource("GDScript_nyaeb")
 [node name="Ship" parent="." instance=ExtResource("5_1b2iq")]
 position = Vector2(106, 430)
 
+[node name="centry" parent="." instance=ExtResource("7_wu4ea")]
+position = Vector2(865, 363)
+scale = Vector2(0.605, 0.605)
+
 [node name="FpsLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ds"
 script = ExtResource("6_1b2iq")
 
-[node name="centry" parent="." instance=ExtResource("7_wu4ea")]
-position = Vector2(865, 363)
-scale = Vector2(0.605, 0.605)
+[node name="timers" type="Node2D" parent="."]
+
+[node name="cycle_timer" type="Timer" parent="timers"]
+wait_time = 30.0
+autostart = true
 
 [connection signal="timeout" from="Path2D/FirstEnemyTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Path2D/material_click" to="." method="_on_material_click_pressed"]
+[connection signal="timeout" from="timers/cycle_timer" to="." method="_on_cycle_timer_timeout"]

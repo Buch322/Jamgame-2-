@@ -1,11 +1,12 @@
 extends CharacterBody2D
-@export var speed = 20
-@export var health = 35
-@export var damage = 1
+
+@export var speed = 5
+@export var health = 120
+@export var damage = 17
 
 
 func _ready() -> void:
-	pass
+	pass 
 
 
 func _process(delta: float) -> void:
@@ -17,7 +18,7 @@ func _on_button_pressed() -> void:
 		glob.klicks -= 1
 		health -= glob.player_damage
 
-# проверка на существование
+# проверка на существоване
 func update_status():
 	if health <= 0:
 		queue_free()

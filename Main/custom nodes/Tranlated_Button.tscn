@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if glob.Localisation == 1:
-		TranslationServer.set_locale('pol')
+		TranslationServer.set_locale('rus')
 	if glob.Localisation == 2:
 		TranslationServer.set_locale('eng')
 	if glob.Localisation == 3:
