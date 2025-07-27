@@ -7,11 +7,11 @@
 [ext_resource type="Script" uid="uid://dw0w53l0mcs5h" path="res://Main/scripts/fps_label.gd" id="6_1b2iq"]
 [ext_resource type="PackedScene" uid="uid://8m6rf7ve01us" path="res://Main/Scenes/buyarea.tscn" id="8_611dc"]
 [ext_resource type="PackedScene" uid="uid://bm5jddc0wa6pr" path="res://Main/Scenes/driller.tscn" id="8_fig50"]
-[ext_resource type="AudioStream" uid="uid://bk26q2k8af0vg" path="res://assets/Sounds/end.ogg" id="8_fooo4"]
-[ext_resource type="AudioStream" uid="uid://seyc8hg5x1ib" path="res://assets/Sounds/start wave - stem-001.ogg" id="9_82sl0"]
-[ext_resource type="AudioStream" uid="uid://d2ga7ilpy3bpt" path="res://assets/Sounds/well1.ogg" id="10_fooo4"]
-[ext_resource type="AudioStream" uid="uid://c17wr5wfhwpmj" path="res://assets/Sounds/start wave - stem-002.ogg" id="10_u7q1r"]
-[ext_resource type="AudioStream" uid="uid://c81w6ctynvx4x" path="res://assets/Sounds/start wave - stem-003.ogg" id="11_cyql8"]
+[ext_resource type="AudioStream" uid="uid://b1uhxnkyhbw3u" path="res://assets/Sounds/end.ogg" id="8_fooo4"]
+[ext_resource type="AudioStream" uid="uid://cc60eswnua3bf" path="res://assets/Sounds/start wave - stem-001.ogg" id="9_82sl0"]
+[ext_resource type="AudioStream" uid="uid://bepemu6ywpluj" path="res://assets/Sounds/well1.ogg" id="10_fooo4"]
+[ext_resource type="AudioStream" uid="uid://jwp5780deyf5" path="res://assets/Sounds/start wave - stem-002.ogg" id="10_u7q1r"]
+[ext_resource type="AudioStream" uid="uid://cg2xb3jsi1j2u" path="res://assets/Sounds/start wave - stem-003.ogg" id="11_cyql8"]
 
 [sub_resource type="GDScript" id="GDScript_611dc"]
 script/source = "extends Label

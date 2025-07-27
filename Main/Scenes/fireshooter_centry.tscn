@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da3dlv6ny7711" path="res://Main/scripts/fireshooter_centry.gd" id="1_a7eav"]
 [ext_resource type="Texture2D" uid="uid://bb2utum1ehu1u" path="res://Main/sprites/firetur.png" id="2_y3s2p"]
-[ext_resource type="AudioStream" uid="uid://04ii52ge12e" path="res://assets/Sounds/SDfire.ogg" id="3_cgegx"]
+[ext_resource type="AudioStream" uid="uid://bdwx2j5v6asiy" path="res://assets/Sounds/SDfire.ogg" id="3_cgegx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y3s2p"]
 radius = 130.0
