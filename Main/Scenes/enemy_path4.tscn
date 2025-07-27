@@ -8,9 +8,10 @@
 rotation = 3.14083
 cubic_interp = false
 script = ExtResource("1_2dxpq")
-speed = 0.02
+speed = 0.01
 Enemy = ExtResource("2_5mno8")
 
 [node name="Finalenemy" parent="." instance=ExtResource("3_5mno8")]
 scale = Vector2(4.695, 4.695)
+speed = 60
 health = 100000000

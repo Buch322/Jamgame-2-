@@ -19,12 +19,11 @@ func _ready() -> void:
 	glob.klick_income = 1
 	
 	# диалог, который проигрывается единожды за заход
-	if glob.tutorial_played == false:
-		Dialogic.start("dialogic/start_dialogue")
-		glob.tutorial_played = true
-		Dialogic.timeline_ended.connect(start_wave)
-	else:
-		pass
+
+	Dialogic.start("dialogic/start_dialogue")
+
+	Dialogic.timeline_ended.connect(start_wave)
+
 
 func start_wave():
 	$Music/FirstWave.play()
@@ -135,7 +134,8 @@ func _on_end_timer_timeout() -> void:
 	#Spawn_Enemy.Enemy=enemy
 	path_2d.add_child(Spawn_Enemy)
 	print("End wave")
-
+	layer_db_change($Music/MainTheme,-80,5)
+	$Music/EndMusic.play()
 
 func _on_more_first_en_timer_timeout() -> void:
 	$timers/FirstEnemyTimer.wait_time=2.5
