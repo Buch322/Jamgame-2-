@@ -11,7 +11,7 @@ func burning_check():
 		await get_tree().create_timer(0.1).timeout
 		if burning == true:
 			take_damage(5)
-			await get_tree().create_timer(0.3).timeout
+			await get_tree().create_timer(0.35).timeout
 		else:
 			pass
 

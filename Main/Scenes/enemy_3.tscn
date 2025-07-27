@@ -46,6 +46,7 @@ animations = [{
 
 [node name="Enemy 3" type="CharacterBody2D"]
 script = ExtResource("1_mlol5")
+health = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o0hei")
