@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://5qc76vk82jf7"]
+
+[ext_resource type="Script" uid="uid://dmqfm76s7w6sp" path="res://Main/scripts/enemy_paths.gd" id="1_xwkum"]
+[ext_resource type="PackedScene" uid="uid://c7bygm172dcnc" path="res://Main/Scenes/enemy.tscn" id="2_wag8s"]
+[ext_resource type="PackedScene" uid="uid://d1t4ktsfhy2vk" path="res://Main/Scenes/enemy_2.tscn" id="3_wag8s"]
+
+[node name="EnemyPaths2" type="PathFollow2D"]
+rotation = 3.14083
+cubic_interp = false
+script = ExtResource("1_xwkum")
+speed = 0.08
+Enemy = ExtResource("2_wag8s")
+
+[node name="Enemy 2" parent="." instance=ExtResource("3_wag8s")]
