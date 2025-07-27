@@ -38,5 +38,5 @@ func update_status():
 
 # получение урона
 func take_damage(taken_damage):
-	print("damage")
+	#print("damage")
 	health -= taken_damage

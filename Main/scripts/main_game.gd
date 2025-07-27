@@ -79,15 +79,19 @@ func _on_third_enemy_timer_timeout() -> void:
 
 
 func _on_wave_timer_1_timeout() -> void:
-	$timers/WaveTimer2.autostart = true
+	$timers/WaveTimer2.start()
+	$timers/SecondEnemyTimer.start()
+	print("wave2")
 
 
 func _on_wave_timer_2_timeout() -> void:
-	$timers/WaveTimer3.autostart = true
+	$timers/WaveTimer3.start()
+	$timers/ThirdEnemyTimer.start()
+	print("wave3")
 
 
 func _on_wave_timer_3_timeout() -> void:
-	pass # Replace with function body.
+	$timers/ENDTimer.start()
 
 
 
@@ -110,3 +114,8 @@ func update_driller():
 	$drillers/Driller8.visible = (driller_count >= 8)
 	if driller_count == 8:
 		$Buy_driller.queue_free()
+
+
+func layer_db_change(music_layer,new_db, duration):
+	var tween = create_tween()
+	tween.tween_property(music_layer, "volume_db", new_db, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
