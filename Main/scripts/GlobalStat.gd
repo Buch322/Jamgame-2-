@@ -2,7 +2,7 @@ extends Node
 
 #не самая важная хрень
 var Localisation = 1
-var tutorial_played = false
+var tutorial_played = true
 
 # основные штуки
 var material = 0

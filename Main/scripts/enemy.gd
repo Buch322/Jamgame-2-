@@ -3,9 +3,19 @@ extends CharacterBody2D
 @export var health = 35
 @export var damage = 1
 
+var burning = false
+
+func burning_check():
+	while true:
+		await get_tree().create_timer(0.1).timeout
+		if burning == true:
+			take_damage(10)
+			await get_tree().create_timer(0.3).timeout
+		else:
+			pass
 
 func _ready() -> void:
-	pass
+	burning_check()
 
 
 func _process(delta: float) -> void:

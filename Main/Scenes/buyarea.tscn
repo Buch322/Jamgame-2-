@@ -1,10 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://8m6rf7ve01us"]
+[gd_scene load_steps=7 format=3 uid="uid://8m6rf7ve01us"]
 
 [ext_resource type="Script" uid="uid://3vispdcqfcae" path="res://Main/scripts/buyarea.gd" id="1_wcera"]
+[ext_resource type="Texture2D" uid="uid://c80tfxya21o44" path="res://Main/sprites/place.png" id="2_1veju"]
 [ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="2_j18e5"]
+
+[sub_resource type="GDScript" id="GDScript_wcera"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = str(\"Обычная\" + \" \" + str($\"../../..\".Based_turret_cost))
+"
+
+[sub_resource type="GDScript" id="GDScript_j18e5"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = str(\"Огнемёт\" + str($\"../../..\".rocket_turret_cost))
+"
+
+[sub_resource type="GDScript" id="GDScript_1veju"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = str(\"Снайперская\" + str($\"../../..\".Sniper_turret_cost))
+"
 
 [node name="buyarea" type="Node2D"]
 script = ExtResource("1_wcera")
+
+[node name="Place" type="Sprite2D" parent="."]
+scale = Vector2(1.95, 1.85)
+texture = ExtResource("2_1veju")
 
 [node name="BuyCentry" type="Button" parent="."]
 offset_left = -39.0
@@ -23,6 +70,14 @@ offset_top = -114.0
 offset_right = 106.0
 offset_bottom = 37.0
 
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 215.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 14
+text = "какую турель вы хотите построить?"
+
 [node name="BuyCentry1" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 1.0
@@ -31,8 +86,18 @@ offset_right = 70.0
 offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("2_j18e5")
 theme_override_font_sizes/font_size = 15
-text = "Обычная45"
 autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Panel/BuyCentry1"]
+layout_mode = 0
+offset_right = 69.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = SubResource("GDScript_wcera")
 
 [node name="BuyCentry2" type="Button" parent="Panel"]
 layout_mode = 0
@@ -42,8 +107,19 @@ offset_right = 141.0
 offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("2_j18e5")
 theme_override_font_sizes/font_size = 15
-text = "Огнемёт 95"
 autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Panel/BuyCentry2"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = SubResource("GDScript_j18e5")
 
 [node name="BuyCentry3" type="Button" parent="Panel"]
 layout_mode = 0
@@ -53,8 +129,18 @@ offset_right = 212.0
 offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("2_j18e5")
 theme_override_font_sizes/font_size = 11
-text = "Снайперская 120"
 autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Panel/BuyCentry3"]
+layout_mode = 0
+offset_right = 69.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_j18e5")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = SubResource("GDScript_1veju")
 
 [node name="otmena" type="Button" parent="Panel"]
 layout_mode = 0
@@ -66,14 +152,6 @@ theme_override_fonts/font = ExtResource("2_j18e5")
 theme_override_font_sizes/font_size = 21
 text = "Отмена"
 autowrap_mode = 3
-
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_right = 212.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_j18e5")
-theme_override_font_sizes/font_size = 14
-text = "какую турель вы хотите построить?"
 
 [connection signal="pressed" from="BuyCentry" to="." method="_on_buy_centry_pressed"]
 [connection signal="pressed" from="Panel/BuyCentry1" to="." method="_on_buy_centry_1_pressed"]

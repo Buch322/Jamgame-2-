@@ -31,7 +31,6 @@ func _on_material_click_pressed() -> void:
 	else:
 		pass
 
-
 #спавнер первых врагов
 func _on_timer_timeout() -> void:
 	#print("time")
@@ -42,7 +41,6 @@ func _on_timer_timeout() -> void:
 # Начало новой волны 
 func _on_cycle_timer_timeout() -> void:
 	glob.new_cycle()
-
 
 #проверка на наличие хп иначе просрал
 func check_health():

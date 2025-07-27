@@ -1,11 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkyanymbm2486"]
+[gd_scene load_steps=9 format=3 uid="uid://dkyanymbm2486"]
 
 [ext_resource type="Script" uid="uid://c4f76a52e3cgb" path="res://Main/scripts/ship.gd" id="1_m2ip2"]
+[ext_resource type="FontFile" uid="uid://dellhoyd1adcj" path="res://Main/shrifti/JakobC_0.otf" id="2_30aio"]
 [ext_resource type="Texture2D" uid="uid://c8dccfnr1xdqn" path="res://Main/sprites/корабль целый.png" id="2_fwcos"]
 [ext_resource type="Texture2D" uid="uid://bwuatpk67gcku" path="res://Main/sprites/корабль сломаный.png" id="2_q2226"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyatb"]
 size = Vector2(66, 86)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdaiw"]
+
+[sub_resource type="GDScript" id="GDScript_cdaiw"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	if $\"../..\".build_progress == 1:
+		$\".\".visible = false
+		$\"../startlabel2\".visible = true
+"
+
+[sub_resource type="GDScript" id="GDScript_30aio"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	text = str($\"../..\".cost)
+"
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_m2ip2")
@@ -16,17 +36,52 @@ scale = Vector2(1, 0.64)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_qyatb")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="labels and buttons" type="Node2D" parent="."]
 
-[node name="fixed" type="Sprite2D" parent="Node2D"]
+[node name="Button" type="Button" parent="labels and buttons"]
+offset_left = -132.0
+offset_top = -82.0
+offset_right = 160.0
+offset_bottom = 53.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cdaiw")
+flat = true
+
+[node name="startlabel" type="Label" parent="labels and buttons"]
+offset_left = -128.0
+offset_top = 36.0
+offset_right = 152.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("2_30aio")
+theme_override_font_sizes/font_size = 16
+text = "Нажмите, чтобы починить."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_cdaiw")
+
+[node name="startlabel2" type="Label" parent="labels and buttons"]
+visible = false
+offset_left = -128.0
+offset_top = 36.0
+offset_right = 152.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("2_30aio")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_30aio")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="fixed" type="Sprite2D" parent="sprites"]
 visible = false
 position = Vector2(-30, -67)
 scale = Vector2(1.524, 1.628)
 texture = ExtResource("2_fwcos")
 
-[node name="broken" type="Sprite2D" parent="Node2D"]
+[node name="broken" type="Sprite2D" parent="sprites"]
 position = Vector2(-19.5, -67.5)
 scale = Vector2(1.43952, 1.63281)
 texture = ExtResource("2_q2226")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="labels and buttons/Button" to="." method="_on_button_pressed"]

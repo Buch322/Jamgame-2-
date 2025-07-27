@@ -1,7 +1,7 @@
 extends Node2D
 #турели
 @onready var turret1 = preload("res://Main/Scenes/centry.tscn") #базовая
-@onready var turret2 # ракетная
+@onready var turret2 = preload("res://Main/Scenes/fireshooter_centry.tscn") # ракетная
 @onready var turret3 = preload("res://Main/Scenes/sniper_centry.tscn") #снайперская
 
 @export var Based_turret_cost = 45
@@ -31,19 +31,23 @@ func _on_otmena_pressed() -> void:
 # меню закупа
 func _on_buy_centry_1_pressed() -> void:
 	var turret1 = turret1.instantiate()
-	if glob.material >= 45:
+	if glob.material >= Based_turret_cost:
 		$".".add_child(turret1)
-		glob.material -= 45
+		glob.material -= Based_turret_cost
 		$Panel.visible = false
 
 
 func _on_buy_centry_2_pressed() -> void:
-	pass # Replace with function body.
+	var turret2 = turret2.instantiate()
+	if glob.material >= rocket_turret_cost:
+		$".".add_child(turret2)
+		glob.material -= rocket_turret_cost
+		$Panel.visible = false
 
 
 func _on_buy_centry_3_pressed() -> void:
 	var turret3 = turret3.instantiate()
-	if glob.material >= 120:
+	if glob.material >= Sniper_turret_cost:
 		$".".add_child(turret3)
-		glob.material -= 120
+		glob.material -= Sniper_turret_cost
 		$Panel.visible = false

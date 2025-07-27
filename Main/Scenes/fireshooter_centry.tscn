@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg6d4eckbbs3n"]
+
+[ext_resource type="Script" uid="uid://da3dlv6ny7711" path="res://Main/scripts/fireshooter_centry.gd" id="1_a7eav"]
+[ext_resource type="Texture2D" uid="uid://bb2utum1ehu1u" path="res://Main/sprites/firetur.png" id="2_y3s2p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3s2p"]
+radius = 130.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7eav"]
+radius = 148.014
+
+[node name="fireshooter_centry" type="Node2D"]
+script = ExtResource("1_a7eav")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y3s2p")
+
+[node name="fire" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fire"]
+shape = SubResource("CircleShape2D_a7eav")
+disabled = true
+
+[node name="Firetur" type="Sprite2D" parent="fire/CollisionShape2D"]
+position = Vector2(0, 1)
+scale = Vector2(2.1875, 2.0625)
+texture = ExtResource("2_y3s2p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="fire" to="." method="_on_fire_body_entered"]
+[connection signal="body_exited" from="fire" to="." method="_on_fire_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
