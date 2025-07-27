@@ -15,12 +15,15 @@ func _ready() -> void:
 	
 	# диалог, который проигрывается единожды за заход
 	if glob.tutorial_played == false:
-		Dialogic.start("start_dialogue")
+		Dialogic.start("dialogic/start_dialogue")
 		glob.tutorial_played = true
+		Dialogic.timeline_ended.connect(start_wave)
 	else:
 		pass
 
-
+func start_wave():
+	$timers/WaveTimer1.start()
+	$timers/FirstEnemyTimer.start()
 func _process(delta: float) -> void:
 	check_health()
 
