@@ -49,8 +49,9 @@ script = ExtResource("1_67cm2")
 health = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_nxere")
-debug_color = Color(0.983169, 0, 0.355634, 0.42)
+debug_color = Color(0.984314, 0, 0.356863, 0)
 
 [node name="Button" type="Button" parent="."]
 offset_left = -15.0

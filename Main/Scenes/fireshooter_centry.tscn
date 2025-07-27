@@ -24,12 +24,14 @@ script = ExtResource("1_a7eav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_y3s2p")
+debug_color = Color(0.250692, 0.544376, 0.298725, 0)
 
 [node name="fire" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fire"]
 shape = SubResource("CircleShape2D_a7eav")
 disabled = true
+debug_color = Color(0.816477, 0.116855, 0.18684, 0.121569)
 
 [node name="Firetur" type="Sprite2D" parent="fire/CollisionShape2D"]
 position = Vector2(0, 1)

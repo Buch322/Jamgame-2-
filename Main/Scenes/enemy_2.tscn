@@ -48,6 +48,7 @@ animations = [{
 script = ExtResource("1_tfocs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_fwqmx")
 debug_color = Color(0.176292, 0.000199791, 0.504756, 0.42)
 

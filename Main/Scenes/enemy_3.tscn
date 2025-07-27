@@ -49,6 +49,7 @@ script = ExtResource("1_mlol5")
 health = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_o0hei")
 debug_color = Color(1, 0.427828, 0.222943, 0.42)
 

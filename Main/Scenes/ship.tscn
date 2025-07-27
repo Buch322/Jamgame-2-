@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bw37qlefl3lpd" path="res://assets/Sounds/SDdamage-004.ogg" id="8_ma0f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyatb"]
-size = Vector2(66, 86)
+size = Vector2(66, 80.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdaiw"]
 
@@ -47,6 +47,8 @@ script = ExtResource("1_m2ip2")
 scale = Vector2(1, 0.64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, 2.75)
 shape = SubResource("RectangleShape2D_qyatb")
 
 [node name="labels and buttons" type="Node2D" parent="."]
