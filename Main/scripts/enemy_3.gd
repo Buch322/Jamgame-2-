@@ -4,6 +4,16 @@ extends CharacterBody2D
 @export var health = 120
 @export var damage = 17
 
+var burning = false
+
+func burning_check():
+	while true:
+		await get_tree().create_timer(0.1).timeout
+		if burning == true:
+			take_damage(10)
+			await get_tree().create_timer(0.3).timeout
+		else:
+			pass
 
 var burning = false
 

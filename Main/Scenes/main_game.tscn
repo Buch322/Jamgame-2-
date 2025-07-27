@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d14t7m3t4f2vt"]
+[gd_scene load_steps=16 format=3 uid="uid://d14t7m3t4f2vt"]
 
 [ext_resource type="Script" uid="uid://sm7o8tifyeki" path="res://Main/scripts/path_follow_2d.gd" id="1_e7062"]
 [ext_resource type="Script" uid="uid://dt6mv13xq2ikl" path="res://Main/scripts/main_game.gd" id="1_fc30o"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dkyanymbm2486" path="res://Main/Scenes/ship.tscn" id="5_1b2iq"]
 [ext_resource type="Script" uid="uid://dw0w53l0mcs5h" path="res://Main/scripts/fps_label.gd" id="6_1b2iq"]
 [ext_resource type="PackedScene" uid="uid://8m6rf7ve01us" path="res://Main/Scenes/buyarea.tscn" id="8_611dc"]
-[ext_resource type="AudioStream" uid="uid://d2ga7ilpy3bpt" path="res://assets/Sounds/well1.ogg" id="10_fooo4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1b2iq"]
 
@@ -192,7 +191,6 @@ position = Vector2(993, 545)
 [node name="Music" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("10_fooo4")
 autoplay = true
 
 [connection signal="pressed" from="material_click" to="." method="_on_material_click_pressed"]
