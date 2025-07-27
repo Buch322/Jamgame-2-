@@ -8,13 +8,13 @@ extends Node2D
 
 
 var driller_count = 0
-var driller_cost = 60 
+var driller_cost = 15 
 
 
 func _ready() -> void:
 	#add_enemy(100)
 	glob.health = 100
-	glob.material = 10000
+	glob.material = 10
 	glob.klicks = 30
 	glob.klick_income = 1
 	
@@ -27,6 +27,7 @@ func _ready() -> void:
 		pass
 
 func start_wave():
+	$Music/FirstWave.play()
 	$timers/WaveTimer1.start()
 	$timers/FirstEnemyTimer.start()
 
@@ -54,7 +55,8 @@ func _on_timer_timeout() -> void:
 
 # Начало новой волны 
 func _on_cycle_timer_timeout() -> void:
-	glob.new_cycle()
+	#glob.new_cycle()
+	pass
 
 #проверка на наличие хп иначе просрал
 func check_health():
@@ -83,9 +85,11 @@ func _on_wave_timer_1_timeout() -> void:
 	$timers/WaveTimer2.start()
 	$timers/SecondEnemyTimer.start()
 	print("wave2")
+	$Music/SecondWave.play()
 
 
 func _on_wave_timer_2_timeout() -> void:
+	$Music/ThirdWave.play()
 	$timers/WaveTimer3.start()
 	$timers/ThirdEnemyTimer.start()
 	print("wave3")
@@ -101,7 +105,7 @@ func _on_buy_driller_pressed() -> void:
 	if glob.material >= driller_cost:
 		driller_count += 1
 		glob.material -= driller_cost
-		driller_cost += 30
+		driller_cost += 15
 		update_driller()
 
 func update_driller():

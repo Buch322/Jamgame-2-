@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d14t7m3t4f2vt"]
+[gd_scene load_steps=20 format=3 uid="uid://d14t7m3t4f2vt"]
 
 [ext_resource type="Script" uid="uid://dt6mv13xq2ikl" path="res://Main/scripts/main_game.gd" id="1_fc30o"]
 [ext_resource type="Texture2D" uid="uid://cd8f2ccb1ybs3" path="res://Main/sprites/background.png" id="2_fig50"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://8m6rf7ve01us" path="res://Main/Scenes/buyarea.tscn" id="8_611dc"]
 [ext_resource type="PackedScene" uid="uid://bm5jddc0wa6pr" path="res://Main/Scenes/driller.tscn" id="8_fig50"]
 [ext_resource type="AudioStream" uid="uid://bk26q2k8af0vg" path="res://assets/Sounds/end.ogg" id="8_fooo4"]
+[ext_resource type="AudioStream" uid="uid://seyc8hg5x1ib" path="res://assets/Sounds/start wave - stem-001.ogg" id="9_82sl0"]
 [ext_resource type="AudioStream" uid="uid://d2ga7ilpy3bpt" path="res://assets/Sounds/well1.ogg" id="10_fooo4"]
+[ext_resource type="AudioStream" uid="uid://c17wr5wfhwpmj" path="res://assets/Sounds/start wave - stem-002.ogg" id="10_u7q1r"]
+[ext_resource type="AudioStream" uid="uid://c81w6ctynvx4x" path="res://assets/Sounds/start wave - stem-003.ogg" id="11_cyql8"]
 
 [sub_resource type="GDScript" id="GDScript_611dc"]
 script/source = "extends Label
@@ -159,6 +162,7 @@ script = SubResource("GDScript_nyaeb")
 position = Vector2(106, 430)
 
 [node name="FpsLabel" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ds"
@@ -167,13 +171,13 @@ script = ExtResource("6_1b2iq")
 [node name="timers" type="Node" parent="."]
 
 [node name="FirstEnemyTimer" type="Timer" parent="timers"]
-wait_time = 3.0
+wait_time = 6.0
 
 [node name="cycle_timer" type="Timer" parent="timers"]
 wait_time = 180.0
 
 [node name="ClickTimer" type="Timer" parent="timers"]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
 
 [node name="SecondEnemyTimer" type="Timer" parent="timers"]
@@ -182,7 +186,7 @@ wait_time = 2.0
 [node name="ThirdEnemyTimer" type="Timer" parent="timers"]
 
 [node name="WaveTimer1" type="Timer" parent="timers"]
-wait_time = 10.0
+wait_time = 120.0
 one_shot = true
 
 [node name="WaveTimer2" type="Timer" parent="timers"]
@@ -243,6 +247,15 @@ bus = &"M1"
 [node name="EndMusic" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("8_fooo4")
 bus = &"M2"
+
+[node name="FirstWave" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("9_82sl0")
+
+[node name="SecondWave" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("10_u7q1r")
+
+[node name="ThirdWave" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("11_cyql8")
 
 [node name="drillers" type="Node2D" parent="."]
 

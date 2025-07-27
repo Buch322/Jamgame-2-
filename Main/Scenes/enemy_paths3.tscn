@@ -8,6 +8,7 @@
 rotation = 3.14083
 cubic_interp = false
 script = ExtResource("1_ieyfm")
+speed = 0.02
 Enemy = ExtResource("2_w6ipj")
 
 [node name="Enemy 3" parent="." instance=ExtResource("3_w6ipj")]
