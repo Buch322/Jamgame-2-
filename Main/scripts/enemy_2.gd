@@ -17,23 +17,6 @@ func burning_check():
 
 func _ready() -> void:
 	burning_check()
-<<<<<<< HEAD
-
-
-var burning = false
-
-func burning_check():
-	while true:
-		await get_tree().create_timer(0.1).timeout
-		if burning == true:
-			take_damage(10)
-			await get_tree().create_timer(0.3).timeout
-		else:
-			pass
-
-
-=======
->>>>>>> f0a5b7682fbcb874e867fdee71c0a1683d11f607
 
 
 func _process(delta: float) -> void:
