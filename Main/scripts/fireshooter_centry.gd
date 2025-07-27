@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 
 # Выстрел
 func shoot():
+	$AudioStreamPlayer2D.play()
 	$fire/CollisionShape2D.disabled = false
 
 func reload_time():

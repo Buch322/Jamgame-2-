@@ -8,6 +8,7 @@ var cost = 20
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		glob.health -= body.damage
+		$AudioStreamPlayer2D.play()
 		body.queue_free()
 
 # Прогрессия починкиы

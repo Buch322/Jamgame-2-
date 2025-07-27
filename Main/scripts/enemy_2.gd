@@ -6,7 +6,21 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-	pass 
+	burning_check()
+
+
+var burning = false
+
+func burning_check():
+	while true:
+		await get_tree().create_timer(0.1).timeout
+		if burning == true:
+			take_damage(10)
+			await get_tree().create_timer(0.3).timeout
+		else:
+			pass
+
+
 
 
 func _process(delta: float) -> void:
@@ -18,7 +32,7 @@ func _on_button_pressed() -> void:
 		glob.klicks -= 1
 		health -= glob.player_damage
 
-# проверка на существоване
+# проверка на существование
 func update_status():
 	if health <= 0:
 		queue_free()

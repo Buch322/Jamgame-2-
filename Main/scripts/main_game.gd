@@ -65,3 +65,15 @@ func _on_third_enemy_timer_timeout() -> void:
 	var Spawn_Enemy= EnemyPath3.instantiate()
 	#Spawn_Enemy.Enemy=enemy
 	path_2d.add_child(Spawn_Enemy)
+
+
+func _on_wave_timer_1_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_wave_timer_2_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_wave_timer_3_timeout() -> void:
+	pass # Replace with function body.

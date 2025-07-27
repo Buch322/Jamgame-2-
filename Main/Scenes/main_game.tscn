@@ -96,6 +96,7 @@ script = ExtResource("1_e7062")
 speed = 0.12
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource("3_kjm4k")]
+damage = 15
 
 [node name="EnemyPaths" parent="Path2D" instance=ExtResource("4_611dc")]
 position = Vector2(1254, 132)
@@ -171,6 +172,15 @@ autostart = true
 [node name="ThirdEnemyTimer" type="Timer" parent="timers"]
 autostart = true
 
+[node name="WaveTimer1" type="Timer" parent="timers"]
+wait_time = 120.0
+
+[node name="WaveTimer2" type="Timer" parent="timers"]
+wait_time = 120.0
+
+[node name="WaveTimer3" type="Timer" parent="timers"]
+wait_time = 120.0
+
 [node name="bueareas" type="Node2D" parent="."]
 
 [node name="buyarea" parent="bueareas" instance=ExtResource("8_611dc")]
@@ -191,3 +201,6 @@ autoplay = true
 [connection signal="timeout" from="timers/ClickTimer" to="." method="_on_click_timer_timeout"]
 [connection signal="timeout" from="timers/SecondEnemyTimer" to="." method="_on_second_enemy_timer_timeout"]
 [connection signal="timeout" from="timers/ThirdEnemyTimer" to="." method="_on_third_enemy_timer_timeout"]
+[connection signal="timeout" from="timers/WaveTimer1" to="." method="_on_wave_timer_1_timeout"]
+[connection signal="timeout" from="timers/WaveTimer2" to="." method="_on_wave_timer_2_timeout"]
+[connection signal="timeout" from="timers/WaveTimer3" to="." method="_on_wave_timer_3_timeout"]
