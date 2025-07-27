@@ -100,12 +100,13 @@ offset_left = -519.0
 offset_top = 129.0
 offset_right = -180.0
 offset_bottom = 294.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ik27a")
 theme_override_font_sizes/font_size = 30
 text = "Создатели:
 Buch - Программирование
 Dilaz -Пиксель арт
-Never - Идея, звук и музыка."
+Never - Геймдизайн, звук и музыка."
 autowrap_mode = 3
 
 [node name="Path2D" type="Path2D" parent="."]

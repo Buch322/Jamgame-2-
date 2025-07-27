@@ -85,6 +85,7 @@ health = 1000000
 damage = 30000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_nxere")
 debug_color = Color(0.983169, 0, 0.355634, 0.42)
 
