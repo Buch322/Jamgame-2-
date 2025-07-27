@@ -13,6 +13,7 @@ func _ready() -> void:
 func shoot():
 	if target != null:
 		if target.has_method("take_damage") and reload <= 0:
+			$AudioStreamPlayer2D.play()
 			target.take_damage(damage)
 			reload = cooldown
 			ammo -= 1

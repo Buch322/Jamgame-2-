@@ -28,13 +28,6 @@ func _process(delta: float) -> void:
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sccvh"]
 
-[sub_resource type="Curve2D" id="Curve2D_sccvh"]
-bake_interval = 0.3
-_data = {
-"points": PackedVector2Array(173.516, -0.132683, -173.516, 0.132683, 1254, 132, 198.255, -39.6, -198.255, 39.6, 763, 583, 0, 0, 0, 0, 413, 352, 262.225, -322.69, -262.225, 322.69, 120, 411)
-}
-point_count = 4
-
 [sub_resource type="GDScript" id="GDScript_fc30o"]
 script/source = "extends Label
 
@@ -74,6 +67,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	text = str(glob.klicks)+\" кликов\"
 "
+
+[sub_resource type="Curve2D" id="Curve2D_sccvh"]
+bake_interval = 0.3
+_data = {
+"points": PackedVector2Array(173.516, -0.132683, -173.516, 0.132683, 1254, 132, 198.255, -39.6, -198.255, 39.6, 763, 583, 0, 0, 0, 0, 413, 352, 262.225, -322.69, -262.225, 322.69, 120, 411)
+}
+point_count = 4
 
 [node name="Main_game" type="Node2D"]
 script = ExtResource("1_fc30o")
@@ -115,9 +115,6 @@ theme_override_font_sizes/font_size = 46
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1b2iq")
 icon = SubResource("ViewportTexture_sccvh")
 flat = true
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_sccvh")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 18.0
@@ -189,7 +186,6 @@ wait_time = 10.0
 one_shot = true
 
 [node name="WaveTimer2" type="Timer" parent="timers"]
-wait_time = 30.0
 one_shot = true
 
 [node name="WaveTimer3" type="Timer" parent="timers"]
@@ -197,6 +193,7 @@ wait_time = 10.0
 one_shot = true
 
 [node name="ENDTimer" type="Timer" parent="timers"]
+one_shot = true
 
 [node name="bueareas" type="Node2D" parent="."]
 
@@ -289,6 +286,9 @@ visible = false
 position = Vector2(297, 128)
 scale = Vector2(2.435, 2.435)
 
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sccvh")
+
 [connection signal="pressed" from="Buy_driller" to="." method="_on_buy_driller_pressed"]
 [connection signal="pressed" from="material_click" to="." method="_on_material_click_pressed"]
 [connection signal="timeout" from="timers/FirstEnemyTimer" to="." method="_on_timer_timeout"]
@@ -299,3 +299,4 @@ scale = Vector2(2.435, 2.435)
 [connection signal="timeout" from="timers/WaveTimer1" to="." method="_on_wave_timer_1_timeout"]
 [connection signal="timeout" from="timers/WaveTimer2" to="." method="_on_wave_timer_2_timeout"]
 [connection signal="timeout" from="timers/WaveTimer3" to="." method="_on_wave_timer_3_timeout"]
+[connection signal="timeout" from="timers/ENDTimer" to="." method="_on_end_timer_timeout"]

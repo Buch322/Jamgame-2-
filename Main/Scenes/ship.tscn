@@ -83,6 +83,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_30aio")
 
+[node name="FixLabel" type="Label" parent="labels and buttons"]
+offset_left = -106.0
+offset_top = -107.0
+offset_right = 113.0
+offset_bottom = -84.0
+text = "0"
+horizontal_alignment = 1
+
 [node name="sprites" type="Node2D" parent="."]
 
 [node name="fixed" type="Sprite2D" parent="sprites"]

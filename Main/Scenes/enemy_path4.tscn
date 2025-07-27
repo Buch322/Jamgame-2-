@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://duos2jo2fic5u"]
+
+[ext_resource type="Script" uid="uid://dmqfm76s7w6sp" path="res://Main/scripts/enemy_paths.gd" id="1_2dxpq"]
+[ext_resource type="PackedScene" uid="uid://c7bygm172dcnc" path="res://Main/Scenes/enemy.tscn" id="2_5mno8"]
+[ext_resource type="PackedScene" uid="uid://dtvb1e3xvqd7w" path="res://Main/Scenes/Finalenemy.tscn" id="3_5mno8"]
+
+[node name="EnemyPaths" type="PathFollow2D"]
+rotation = 3.14083
+cubic_interp = false
+script = ExtResource("1_2dxpq")
+speed = 0.02
+Enemy = ExtResource("2_5mno8")
+
+[node name="Finalenemy" parent="." instance=ExtResource("3_5mno8")]
+scale = Vector2(4.695, 4.695)
+health = 100000000

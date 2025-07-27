@@ -1,8 +1,8 @@
 extends Node2D
 
 var build_progress = 0
-var max_bluildd_progres = 50
-var cost = 20
+@export var max_bluildd_progres = 10
+@export var cost = 20
 
 #столкновение с объектом
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -21,5 +21,6 @@ func _on_button_pressed() -> void:
 		check()
 
 func check():
-	if build_progress == 50:
+	$"labels and buttons/FixLabel".text="Процент починки корабля="+str(build_progress*2)
+	if build_progress == max_bluildd_progres:
 		get_tree().change_scene_to_file("res://Main/Scenes/you_win.tscn")

@@ -3,6 +3,7 @@ extends Node2D
 @onready var EnemyPath = preload("res://Main/Scenes/enemy_paths.tscn")
 @onready var EnemyPath2 = preload("res://Main/Scenes/enemy_paths2.tscn")
 @onready var EnemyPath3 = preload("res://Main/Scenes/enemy_paths3.tscn")
+@onready var EnemyPath4 = preload("res://Main/Scenes/enemy_path4.tscn")
 @onready var path_2d: Path2D = $Path2D
 
 
@@ -13,7 +14,7 @@ var driller_cost = 60
 func _ready() -> void:
 	#add_enemy(100)
 	glob.health = 100
-	glob.material = 1000
+	glob.material = 10000
 	glob.klicks = 30
 	glob.klick_income = 1
 	
@@ -119,3 +120,13 @@ func update_driller():
 func layer_db_change(music_layer,new_db, duration):
 	var tween = create_tween()
 	tween.tween_property(music_layer, "volume_db", new_db, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _on_end_timer_timeout() -> void:
+	$timers/FirstEnemyTimer.stop()
+	$timers/SecondEnemyTimer.stop()
+	$timers/ThirdEnemyTimer.stop()
+	var Spawn_Enemy= EnemyPath4.instantiate()
+	#Spawn_Enemy.Enemy=enemy
+	path_2d.add_child(Spawn_Enemy)
+	print("End wave")
