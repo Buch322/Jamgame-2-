@@ -171,13 +171,13 @@ script = ExtResource("6_1b2iq")
 [node name="timers" type="Node" parent="."]
 
 [node name="FirstEnemyTimer" type="Timer" parent="timers"]
-wait_time = 6.0
+wait_time = 5.0
 
 [node name="cycle_timer" type="Timer" parent="timers"]
 wait_time = 180.0
 
 [node name="ClickTimer" type="Timer" parent="timers"]
-wait_time = 4.0
+wait_time = 2.0
 autostart = true
 
 [node name="SecondEnemyTimer" type="Timer" parent="timers"]
@@ -190,14 +190,22 @@ wait_time = 120.0
 one_shot = true
 
 [node name="WaveTimer2" type="Timer" parent="timers"]
+wait_time = 120.0
 one_shot = true
 
 [node name="WaveTimer3" type="Timer" parent="timers"]
-wait_time = 10.0
+wait_time = 60.0
 one_shot = true
 
 [node name="ENDTimer" type="Timer" parent="timers"]
 one_shot = true
+
+[node name="MoreFirstEnTimer" type="Timer" parent="timers"]
+wait_time = 45.0
+
+[node name="MoreSecEnTimer" type="Timer" parent="timers"]
+
+[node name="MoreThiedEnTimer" type="Timer" parent="timers"]
 
 [node name="bueareas" type="Node2D" parent="."]
 
@@ -313,3 +321,6 @@ curve = SubResource("Curve2D_sccvh")
 [connection signal="timeout" from="timers/WaveTimer2" to="." method="_on_wave_timer_2_timeout"]
 [connection signal="timeout" from="timers/WaveTimer3" to="." method="_on_wave_timer_3_timeout"]
 [connection signal="timeout" from="timers/ENDTimer" to="." method="_on_end_timer_timeout"]
+[connection signal="timeout" from="timers/MoreFirstEnTimer" to="." method="_on_more_first_en_timer_timeout"]
+[connection signal="timeout" from="timers/MoreSecEnTimer" to="." method="_on_more_sec_en_timer_timeout"]
+[connection signal="timeout" from="timers/MoreThiedEnTimer" to="." method="_on_more_thied_en_timer_timeout"]

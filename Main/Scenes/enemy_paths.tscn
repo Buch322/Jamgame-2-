@@ -10,4 +10,5 @@ script = ExtResource("1_kpnsc")
 Enemy = ExtResource("2_oji7u")
 
 [node name="enemy" parent="." instance=ExtResource("2_oji7u")]
+speed = 30
 damage = 15

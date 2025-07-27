@@ -14,7 +14,7 @@ var driller_cost = 15
 func _ready() -> void:
 	#add_enemy(100)
 	glob.health = 100
-	glob.material = 10
+	glob.material = 20
 	glob.klicks = 30
 	glob.klick_income = 1
 	
@@ -30,6 +30,7 @@ func start_wave():
 	$Music/FirstWave.play()
 	$timers/WaveTimer1.start()
 	$timers/FirstEnemyTimer.start()
+	$timers/MoreFirstEnTimer.start()
 
 
 
@@ -134,3 +135,15 @@ func _on_end_timer_timeout() -> void:
 	#Spawn_Enemy.Enemy=enemy
 	path_2d.add_child(Spawn_Enemy)
 	print("End wave")
+
+
+func _on_more_first_en_timer_timeout() -> void:
+	$timers/FirstEnemyTimer.wait_time=2.5
+
+
+func _on_more_sec_en_timer_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_more_thied_en_timer_timeout() -> void:
+	pass # Replace with function body.
