@@ -6,6 +6,10 @@ extends Node2D
 @onready var path_2d: Path2D = $Path2D
 
 
+var driller_count = 0
+var driller_cost = 60 
+
+
 func _ready() -> void:
 	#add_enemy(100)
 	glob.health = 100
@@ -24,6 +28,10 @@ func _ready() -> void:
 func start_wave():
 	$timers/WaveTimer1.start()
 	$timers/FirstEnemyTimer.start()
+
+
+
+
 func _process(delta: float) -> void:
 	check_health()
 
@@ -71,12 +79,34 @@ func _on_third_enemy_timer_timeout() -> void:
 
 
 func _on_wave_timer_1_timeout() -> void:
-	pass # Replace with function body.
+	$timers/WaveTimer2.autostart = true
 
 
 func _on_wave_timer_2_timeout() -> void:
-	pass # Replace with function body.
+	$timers/WaveTimer3.autostart = true
 
 
 func _on_wave_timer_3_timeout() -> void:
 	pass # Replace with function body.
+
+
+
+
+func _on_buy_driller_pressed() -> void:
+	if glob.material >= driller_cost:
+		driller_count += 1
+		glob.material -= driller_cost
+		driller_cost += 30
+		update_driller()
+
+func update_driller():
+	$drillers/Driller.visible = (driller_count >= 1)
+	$drillers/Driller2.visible = (driller_count >= 2)
+	$drillers/Driller3.visible = (driller_count >= 3)
+	$drillers/Driller4.visible = (driller_count >= 4)
+	$drillers/Driller5.visible = (driller_count >= 5)
+	$drillers/Driller6.visible = (driller_count >= 6)
+	$drillers/Driller7.visible = (driller_count >= 7)
+	$drillers/Driller8.visible = (driller_count >= 8)
+	if driller_count == 8:
+		$Buy_driller.queue_free()

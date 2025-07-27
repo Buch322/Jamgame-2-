@@ -17,7 +17,7 @@ func _on_button_pressed() -> void:
 		build_progress += 1
 		glob.material -= cost
 		glob.klicks -= 1
-		cost += 15
+		cost += 7
 		check()
 
 func check():

@@ -1,11 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1t4ktsfhy2vk"]
+[gd_scene load_steps=10 format=3 uid="uid://d1t4ktsfhy2vk"]
 
 [ext_resource type="Script" uid="uid://c10q4ksiq4ibq" path="res://Main/scripts/enemy_2.gd" id="1_tfocs"]
+[ext_resource type="Texture2D" uid="uid://bqigmen0i6oxe" path="res://Main/sprites/enemy2.png" id="2_fwqmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwqmx"]
 size = Vector2(30, 26)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyjqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyjqt"]
+atlas = ExtResource("2_fwqmx")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05xcj"]
+atlas = ExtResource("2_fwqmx")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbjd2"]
+atlas = ExtResource("2_fwqmx")
+region = Rect2(32, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twr3y"]
+atlas = ExtResource("2_fwqmx")
+region = Rect2(48, 48, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h06c2"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_qyjqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05xcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbjd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twr3y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.5
+}]
 
 [node name="Enemy 2" type="CharacterBody2D"]
 script = ExtResource("1_tfocs")
@@ -21,5 +58,13 @@ offset_right = 15.0
 offset_bottom = 14.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qyjqt")
 flat = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 15.5)
+scale = Vector2(3, 2.70833)
+sprite_frames = SubResource("SpriteFrames_h06c2")
+autoplay = "default"
+frame_progress = 0.80041
+flip_v = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
