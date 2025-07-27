@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkyanymbm2486" path="res://Main/Scenes/ship.tscn" id="5_1b2iq"]
 [ext_resource type="Script" uid="uid://dw0w53l0mcs5h" path="res://Main/scripts/fps_label.gd" id="6_1b2iq"]
 [ext_resource type="PackedScene" uid="uid://8m6rf7ve01us" path="res://Main/Scenes/buyarea.tscn" id="8_611dc"]
-[ext_resource type="AudioStream" uid="uid://d2ga7ilpy3bpt" path="res://assets/Sounds/well1.ogg" id="10_fooo4"]
+[ext_resource type="AudioStream" uid="uid://bepemu6ywpluj" path="res://assets/Sounds/well1.ogg" id="10_fooo4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1b2iq"]
 
