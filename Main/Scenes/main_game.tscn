@@ -177,7 +177,7 @@ wait_time = 5.0
 wait_time = 180.0
 
 [node name="ClickTimer" type="Timer" parent="timers"]
-wait_time = 2.0
+wait_time = 2.7
 autostart = true
 
 [node name="SecondEnemyTimer" type="Timer" parent="timers"]
